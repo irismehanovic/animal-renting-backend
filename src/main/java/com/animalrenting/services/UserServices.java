@@ -3,6 +3,7 @@ package com.animalrenting.services;
 import com.animalrenting.models.City;
 import com.animalrenting.models.UserType;
 import com.animalrenting.models.Users;
+import com.animalrenting.repositories.UsersRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,8 +14,10 @@ import java.util.stream.Collectors;
 public class UserServices {
 
     private final List<Users> userList;
+    private final UsersRepository usersRepository;
 
-    public UserServices(){
+    public UserServices(UsersRepository usersRepository){
+        this.usersRepository = usersRepository;
         userList = new ArrayList<>();
         userList.add(generateRenter());
         userList.add(generateRentee());
@@ -64,14 +67,12 @@ public class UserServices {
     }
 
     public List<Users> getUsers() {
-        return userList;
+
+        return usersRepository.findAll();
     }
 
     public Users createUser(Users user) {
-        long ID = userList.size() + 1;
-        user.setID(ID);
-        userList.add(user);
-        return user;
+        return usersRepository.save(user);
     }
 
     public void updateUser(Users users, long ID) {
