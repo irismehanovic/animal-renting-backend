@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -28,12 +29,13 @@ public class AnimalServices {
     }
 
     public Animal getById(long id) {
-        for (Animal animal : resultList) {
-            if (animal.getId() == id) {
-                return animal;
-            }
+
+        Optional<Animal> itemOptional = animalRepositories.findById(id);
+        if(itemOptional.isPresent()) {
+            return itemOptional.get();
         }
-        throw new RuntimeException("Value not found provided id:" + id);
+
+        throw new RuntimeException("Item with id:" +id + " does not exist");
     }
 
     public Animal create(Animal model) {
