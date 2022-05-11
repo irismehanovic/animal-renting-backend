@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "animals")
+@Table(name = "animal")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -17,6 +17,10 @@ public class Animal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "owner", referencedColumnName = "id")
+    private Owner owner;
 
     @Column(name = "age")
     private int age;
