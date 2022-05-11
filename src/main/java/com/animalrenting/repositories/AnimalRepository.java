@@ -8,7 +8,11 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
 
     Animal findAllByVaccinated(boolean isVaccinated);
 
+    Animal findAllByLocationContaining();
+
     int countAllByAnimalTypeCats();
+
+
 
 
 }
