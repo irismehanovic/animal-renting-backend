@@ -18,6 +18,10 @@ public class Animal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @ManyToOne
+    @JoinColumn(name = "users", referencedColumnName = "id")
+    private Users users;
+
     @Column(name = "age")
     private int age;
 

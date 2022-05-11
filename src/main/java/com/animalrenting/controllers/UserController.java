@@ -34,20 +34,14 @@ public class UserController {
 
     @PutMapping(value = "/{ID}")
     public Users updateUsername(@RequestBody Users username, @PathVariable(value="ID") long ID) {
-        this.userServices.updateUser(username, ID);
+        userServices.updateUser(username, ID);
         return username;
     }
 
     @PutMapping(value = "/{ID}")
     public Users updatePassword(@RequestBody Users password, @PathVariable(value="ID") long ID) {
-        this.userServices.updateUser(password, ID);
+        userServices.updateUser(password, ID);
         return password;
-    }
-
-    @PutMapping(value = "/{ID}")
-    public Users updateCity(@RequestBody Users city, @PathVariable(value="ID") long ID) {
-        this.userServices.updateUser(city, ID);
-        return city;
     }
 
 }

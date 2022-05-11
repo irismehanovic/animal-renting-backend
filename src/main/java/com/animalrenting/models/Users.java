@@ -50,4 +50,7 @@ public class Users {
 
     @Column(name = "date_of_birth")
     private int dateOfBirth;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+    private List<Animal> animals;
 }
