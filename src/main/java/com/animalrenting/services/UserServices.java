@@ -23,7 +23,7 @@ public class UserServices {
         userList.add(generateRentee());
     }
 
-    public Users getByID(long ID) {
+    public static Users getByID(long ID) {
         for (Users user : userList) {
             if(user.getID() == ID) {
                 return user;
@@ -71,7 +71,7 @@ public class UserServices {
         return usersRepository.findAll();
     }
 
-    public Users createUser(Users user) {
+    public static Users createUser(Users user) {
         return usersRepository.save(user);
     }
 
