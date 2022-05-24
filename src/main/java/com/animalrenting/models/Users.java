@@ -51,7 +51,7 @@ public class Users {
     @Column(name = "date_of_birth")
     private int dateOfBirth;
 
-    public Long getID() {
+    public String getID() {
         return ID;
     }
 

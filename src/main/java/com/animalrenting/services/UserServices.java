@@ -16,7 +16,7 @@ public class UserServices {
     private final List<Users> userList;
     private final UsersRepository usersRepository;
 
-    public UserServices(UsersRepository usersRepository){
+    public UserServices(UsersRepository usersRepository) {
         this.usersRepository = usersRepository;
         userList = new ArrayList<>();
         userList.add(generateRenter());
@@ -25,7 +25,7 @@ public class UserServices {
 
     public static Users getByID(long ID) {
         for (Users user : userList) {
-            if(user.getID() == ID) {
+            if (user.getID() == ID) {
                 return user;
             }
         }
@@ -44,7 +44,7 @@ public class UserServices {
         user1.setAddress("address");
         user1.setUserType(UserType.renter);
         user1.setPhoneNumber(1234567);
-        user1.setDateOfBirth(24-3-2000);
+        user1.setDateOfBirth(24 - 3 - 2000);
 
         return user1;
     }
@@ -61,7 +61,7 @@ public class UserServices {
         user2.setAddress("address");
         user2.setUserType(UserType.rentee);
         user2.setPhoneNumber(1234567);
-        user2.setDateOfBirth(24-3-2000);
+        user2.setDateOfBirth(24 - 3 - 2000);
 
         return user2;
     }
@@ -76,8 +76,8 @@ public class UserServices {
     }
 
     public void updateUser(Users users, long ID) {
-        userList.stream().map(user->{
-             if(user.getID()==ID) {
+        userList.stream().map(user -> {
+            if (user.getID() == ID) {
                 user.setUsername(users.getUsername());
                 user.setName(users.getName());
                 user.setLastName(users.getLastName());
@@ -90,6 +90,15 @@ public class UserServices {
                 user.setDateOfBirth(users.getDateOfBirth());
             }
             return user;
-         }).collect(Collectors.toList());
+        }).collect(Collectors.toList());
+    }
+
+    public static Users getByCity(String City) {
+        for (Users user : userList) {
+            if (user.getCity() == City) {
+                return user;
+            }
+        }
+        return null;
     }
 }
