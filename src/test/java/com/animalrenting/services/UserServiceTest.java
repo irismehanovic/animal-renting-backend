@@ -41,7 +41,7 @@ public class UserServiceTest {
     private UserServices userService;
 
     @Test
-    public void givenValidId_whenGetById_thenItemShouldBeFound() {
+    public void givenValidId_whenGetById_thenUserShouldBeFound() {
         Users users = UsersTest.users();
 
         Mockito.when(usersRepository.findById(users.getID()))
@@ -83,6 +83,19 @@ public class UserServiceTest {
         assertThatThrownBy(() -> userService.updateUser(UsersTest.users(), 0002))
                 .isInstanceOf(RuntimeException.class)
                 .hasMessageContaining("does not exist");
+    }
+
+    @Test
+    public void givenValidCity_whenGetByCity_thenCityShouldBeFound() {
+        Users users = UsersTest.users();
+
+        Mockito.when(usersRepository.findAllByCity(users.getCity()))
+                .thenReturn(Optional.of(users));
+
+        Users resultUsers = UserServices.getByCity(users.getCity());
+
+        assertThat(resultUsers.getCity())
+                .isEqualTo(users.getCity());
     }
 
 }
