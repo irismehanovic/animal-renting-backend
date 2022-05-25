@@ -6,22 +6,16 @@ import com.animalrenting.models.Gender;
 import com.animalrenting.repositories.AnimalRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class AnimalServices {
 
-    private final List<Animal> resultList;
     private final AnimalRepository animalRepositories;
 
     public AnimalServices(AnimalRepository animalRepository) {
         this.animalRepositories = animalRepository;
-        resultList = new ArrayList<>();
-        resultList.add(generateCat());
-        resultList.add(generateDog());
     }
 
     public List<Animal> getAnimals() {
@@ -29,46 +23,32 @@ public class AnimalServices {
     }
 
     public Animal getById(long id) {
-
-        Optional<Animal> itemOptional = animalRepositories.findById(id);
-        if(itemOptional.isPresent()) {
-            return itemOptional.get();
-        }
-
-        throw new RuntimeException("Item with id:" +id + " does not exist");
+        return getEntity(id);
     }
 
     public Animal create(Animal model) {
-        animalRepositories.save(model);
-        return model;
+        return animalRepositories.save(model);
     }
 
-    public void update(Animal model, long id) {
-        resultList.stream().map(b -> {
-            if (b.getId() == id) {
-                b.setAge(model.getAge());
-                b.setPrice(model.getPrice());
-                b.setShortDescription(model.getShortDescription());
-                b.setLongDescription(model.getLongDescription());
-                b.setLocation(model.getLocation());
-                b.setAnimalType(model.getAnimalType());
-                b.setGender(model.getGender());
-                //fali mi za vaccinated
-            }
-            return b;
-        }).collect(Collectors.toList());
+    public Animal update(Animal model, long id) {
+        getEntity(id);
+
+        model.setId(id);
+        return animalRepositories.save(model);
+    }
+
+    private Animal getEntity(long id) {
+        Optional<Animal> animalOptional = animalRepositories.findById(id);
+        if(animalOptional.isPresent()) {
+            return animalOptional.get();
+        }
+
+        throw new RuntimeException("Animal with id:" + id + " does not exist!");
     }
 
     public void delete(long id) {
-        resultList.stream().filter(animal -> {
-            if (animal.getId() != id) {
-                return true;
-            } else {
-                return false;
-            }
-        }).collect(Collectors.toList());
+        animalRepositories.deleteById(id);
     }
-
 
     private Animal generateCat() {
         Animal animal = new Animal();
