@@ -4,5 +4,20 @@ public enum City {
     Sarajevo,
     Tuzla,
     Mostar,
-    Zenica
+    Zenica,
+    Bihac,
+    Trebinje,
+    Prijedor,
+    Doboj,
+    Zavidovici,
+    Visoko,
+    Cazin,
+    Livno,
+    Gracanica,
+    Gorazde,
+    Srebrenik,
+    Konjic,
+    Lukavac,
+    Brcko,
+    Travnik
 }
