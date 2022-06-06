@@ -8,11 +8,11 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UsersController {
 
     private final UserServices userServices;
 
-    public UserController(UserServices userServices) {
+    public UsersController(UserServices userServices) {
         this.userServices = userServices;
     }
 
@@ -31,17 +31,17 @@ public class UserController {
         return userServices.createUser(profile);
     }
 
-
     @PutMapping(value = "/{ID}")
-    public Users updateUsername(@RequestBody Users username, @PathVariable(value="ID") long ID) {
-        userServices.updateUser(username, ID);
-        return username;
+    public Users updateUsername(@RequestBody Users user, @PathVariable(value="ID") long ID) {
+//        var user = userServices.getByUsername(username);
+        userServices.updateUser(user, ID);
+        return user;
     }
 
-    @PutMapping(value = "/{ID}")
-    public Users updatePassword(@RequestBody Users password, @PathVariable(value="ID") long ID) {
-        userServices.updateUser(password, ID);
-        return password;
-    }
+//    @PutMapping(value = "/{ID}")
+//    public Users updatePassword(@RequestBody Users password, @PathVariable(value="ID") long ID) {
+//        userServices.updateUser(password, ID);
+//        return password;
+//    }
 
 }

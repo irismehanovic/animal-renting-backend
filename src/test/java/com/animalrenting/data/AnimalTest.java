@@ -13,11 +13,11 @@ public class AnimalTest {
         Animal animal = new Animal();
         animal.setId(2);
         animal.setAnimalType(AnimalType.dogs);
-        animal.setAge(1);
+        animal.setAge("1");
         animal.setPrice(9.40);
         animal.setShortDescription("Beautiful dog");
         animal.setLongDescription("Beautiful dog with brown eyes");
-        animal.setLocation("Kakanj");
+//        animal.setLocation("Kakanj");
         animal.setGender(Gender.male);
         animal.setVaccinated(true);
 

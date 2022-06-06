@@ -54,11 +54,10 @@ public class AnimalServices {
         Animal animal = new Animal();
         animal.setId(1);
         animal.setAnimalType(AnimalType.cats);
-        animal.setAge(2);
+        animal.setAge("2");
         animal.setPrice(8.20);
         animal.setShortDescription("Beautiful cat");
         animal.setLongDescription("Beautiful cat with black eyes");
-        animal.setLocation("Sarajevo");
         animal.setGender(Gender.female);
         animal.setVaccinated(true);
 
@@ -69,11 +68,10 @@ public class AnimalServices {
         Animal animal = new Animal();
         animal.setId(2);
         animal.setAnimalType(AnimalType.dogs);
-        animal.setAge(1);
+        animal.setAge("2 months");
         animal.setPrice(9.40);
         animal.setShortDescription("Beautiful dog");
         animal.setLongDescription("Beautiful dog with brown eyes");
-        animal.setLocation("Kakanj");
         animal.setGender(Gender.male);
         animal.setVaccinated(true);
 

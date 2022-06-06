@@ -1,31 +1,33 @@
 package com.animalrenting.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
-@Table(name = "animal")
+@Table(name = "animals")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-public class Animal {
+@Proxy(lazy = false)
+public class Animal implements Serializable {
+
+    private static final long serialVersionUID = 2L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-  
-    @Column(name = "users")
-    private Users users; 
-  
-    @Column(name = "owner")
-    private Owner owner;
 
     @Column(name = "age")
-    private int age;
+    private String age;
 
     @Column(name = "price")
     private double price;
@@ -35,9 +37,6 @@ public class Animal {
 
     @Column(name = "long_secription")
     private String longDescription;
-
-    @Column(name = "location")
-    private String location;
 
     @Column(name = "animal_Type")
     @Enumerated(value = EnumType.STRING)
@@ -50,4 +49,15 @@ public class Animal {
     @Column(name = "vaccinated", nullable = false)
     private boolean vaccinated;
 
+//    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private Users user;
+
+//    @OneToOne(fetch = FetchType.LAZY, mappedBy = "animals")
+//    private Animal animals;
+
+//    @ManyToOne
+//    @JoinColumn(name = "user_id")
+//    private Users owner;
 }

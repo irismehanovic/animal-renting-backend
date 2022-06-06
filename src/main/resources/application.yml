@@ -3,12 +3,16 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://${APP_DB_URL:localhost}:${APP_DB_PORT:5432}/${APP_DB_NAME:animal_renting_db}
-    username: ${APP_DB_USERNAME}
-    password: ${APP_DB_PASSWORD}
+#    url: jdbc:postgresql://${APP_DB_URL:localhost}:${APP_DB_PORT:5432}/${APP_DB_NAME:animal_renting_db}
+    url: jdbc:postgresql://${APP_DB_URL:localhost}:${APP_DB_PORT:5432}/${APP_DB_NAME:animal_app_db}
+#    username: postgres
+    username: animals_user
+    password: 2140
   jpa:
     hibernate:
-      ddl-auto: update
+#      ddl-auto: update
+      hbm2ddl:
+        auto: update
     openInView: false
     show_sql: true
     generate-ddl: true
@@ -19,3 +23,14 @@ spring:
   service:
     ui:
       url: ${FRONTEND_API_URL}
+
+  security:
+    jwt:
+      token:
+        secretkey: ${SECRET_KEY:wipjd03kmv[wh567gmcvf2p0fh<niyedjgvdckjhkkhVvj;'\986546&*6865&^}
+        tokendurationminutes: ${TOKEN_DURATION_MINUTES:600}
+  springdoc:
+    packagesToScan: com.animalrenting
+    pathsToMatch: /**
+    api-docs:
+      path: /api-docs
