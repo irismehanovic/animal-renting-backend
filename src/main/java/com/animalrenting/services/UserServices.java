@@ -22,6 +22,7 @@ public class UserServices {
     private final AnimalRepository animalRepository;
 
     public UserServices(UsersRepository usersRepository, AnimalRepository animalRepository){
+
         this.usersRepository = usersRepository;
         this.animalRepository = animalRepository;
 //        userList = new ArrayList<>();
@@ -58,6 +59,7 @@ public class UserServices {
     public Users getByUsername(String username) {
         for (Users user : userList) {
             if(user.getUsername() == username) {
+
                 return user;
             }
         }
@@ -91,6 +93,7 @@ public class UserServices {
         user2.setUserType(UserType.rentee);
         user2.setPhoneNumber(1234567);
 
+
         return user2;
     }
 
@@ -109,12 +112,14 @@ public class UserServices {
             }
         }
         user.setAnimals(listOfAnimals);
+
         return usersRepository.save(user);
     }
 
     public void updateUser(Users users, long ID) {
         userList.stream().map(user->{
              if(user.getId()==ID) {
+
                 user.setUsername(users.getUsername());
                 user.setFirstName(users.getFirstName());
                 user.setLastName(users.getLastName());
@@ -125,6 +130,15 @@ public class UserServices {
                 user.setPhoneNumber(users.getPhoneNumber());
             }
             return user;
-         }).collect(Collectors.toList());
+        }).collect(Collectors.toList());
+    }
+
+    public static Users getByCity(String City) {
+        for (Users user : userList) {
+            if (user.getCity() == City) {
+                return user;
+            }
+        }
+        return null;
     }
 }
