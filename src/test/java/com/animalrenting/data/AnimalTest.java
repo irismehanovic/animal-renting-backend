@@ -12,7 +12,7 @@ public class AnimalTest {
 
         Animal animal = new Animal();
         animal.setId(2);
-        animal.setAnimalType(AnimalType.dogs);
+        animal.setAnimalType(AnimalType.dog);
         animal.setAge("1");
         animal.setPrice(9.40);
         animal.setShortDescription("Beautiful dog");
