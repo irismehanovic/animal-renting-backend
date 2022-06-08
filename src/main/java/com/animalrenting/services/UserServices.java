@@ -19,8 +19,10 @@ public class UserServices {
     private final List<Users> userList = null;
     private final UsersRepository userRepositories;
 
+
     public UserServices(UsersRepository userRepository) {
         this.userRepositories = userRepository;
+
     }
 
     public List<Users> getUsers() {
@@ -31,8 +33,10 @@ public class UserServices {
         return getEntity(id);
     }
 
+
     public Users create(Users model) {
         return userRepositories.save(model);
+
     }
 
     public Users update(Users model, long id) {
@@ -42,8 +46,10 @@ public class UserServices {
         return userRepositories.save(model);
     }
 
+
     public void delete(long id) {
         userRepositories.deleteById(id);
+
     }
 
     private Users getEntity(long id) {
@@ -55,14 +61,3 @@ public class UserServices {
         throw new RuntimeException("Animal with id:" + id + " does not exist!");
     }
 
-    //    private boolean doExistUsernames(List<String> usernamesToCheck) {
-//        for (var username : usernamesToCheck
-//             ) {
-//            if(userRepositories.findFirstByUsername(username) != null) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
-}
