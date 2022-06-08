@@ -1,6 +1,6 @@
 package com.animalrenting.controllers;
 
-import com.animalrenting.models.Animal;
+import com.animalrenting.models.dtos.AnimalDto;
 import com.animalrenting.services.AnimalServices;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,22 +18,22 @@ public class AnimalController {
     }
 
     @GetMapping
-    public List<Animal> getAnimals() {
+    public List<AnimalDto> getAnimals() {
         return animalServices.getAnimals();
     }
 
     @GetMapping("/{id}")
-    public Animal getAnimals(@PathVariable long id) {
+    public AnimalDto getAnimals(@PathVariable long id) {
         return animalServices.getById(id);
     }
 
     @PostMapping
-    public Animal createAnimals (@RequestBody Animal animal) {
+    public AnimalDto createAnimals (@RequestBody AnimalDto animal) {
         return animalServices.create(animal);
     }
 
     @PutMapping("/{id}")
-    public Animal updateAnimals(@RequestBody Animal animalDetails, @PathVariable(value="id") long id) {
+    public AnimalDto updateAnimals(@RequestBody AnimalDto animalDetails, @PathVariable(value="id") long id) {
         animalServices.update(animalDetails, id);
         return animalDetails;
     }

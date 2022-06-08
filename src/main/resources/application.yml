@@ -20,17 +20,17 @@ spring:
     jpa:
       repositories.enabled: true
 
-  service:
-    ui:
-      url: ${FRONTEND_API_URL}
+service:
+  ui:
+    url: ${FRONTEND_API_URL:http://localhost:4200}
 
-  security:
-    jwt:
-      token:
-        secretkey: ${SECRET_KEY:wipjd03kmv[wh567gmcvf2p0fh<niyedjgvdckjhkkhVvj;'\986546&*6865&^}
-        tokendurationminutes: ${TOKEN_DURATION_MINUTES:600}
-  springdoc:
-    packagesToScan: com.animalrenting
-    pathsToMatch: /**
-    api-docs:
-      path: /api-docs
+security:
+  jwt:
+    token:
+      secretkey: ${SECRET_KEY:wipjd03kmv[wh567gmcvf2p0fh<niyedjgvdckjhkkhVvj;'\986546&*6865&^}
+      tokendurationminutes: ${TOKEN_DURATION_MINUTES:600}
+springdoc:
+  packagesToScan: com.animalrenting
+  pathsToMatch: /**
+  api-docs:
+    path: /api-docs
