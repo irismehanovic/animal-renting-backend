@@ -14,7 +14,7 @@
 	<name>animal-renting</name>
 	<description>Application for Renting Animals</description>
 	<properties>
-		<java.version>15</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
