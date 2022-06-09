@@ -55,14 +55,4 @@ public class UserServices {
         throw new RuntimeException("Animal with id:" + id + " does not exist!");
     }
 
-    //    private boolean doExistUsernames(List<String> usernamesToCheck) {
-//        for (var username : usernamesToCheck
-//             ) {
-//            if(userRepositories.findFirstByUsername(username) != null) {
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-
 }

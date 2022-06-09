@@ -19,5 +19,4 @@ public enum City {
     Konjic,
     Lukavac,
     Brcko,
-    Travnik
 }
