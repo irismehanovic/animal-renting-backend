@@ -18,5 +18,4 @@ public enum City {
     Srebrenik,
     Konjic,
     Lukavac,
-    Brcko,
 }
