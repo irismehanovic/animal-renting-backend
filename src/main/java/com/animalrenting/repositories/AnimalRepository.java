@@ -13,4 +13,5 @@ public interface AnimalRepository extends JpaRepository<Animal, Long> {
    // int countAllByAnimalTypeCats();
 
 
+
 }

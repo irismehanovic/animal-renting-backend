@@ -9,4 +9,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class AuthenticationResponsePayload {
     private String token;
+    private long id;
 }
