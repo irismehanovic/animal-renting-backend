@@ -17,6 +17,7 @@ public class AnimalController {
         this.animalServices = animalServices;
     }
 
+
     @GetMapping
     public List<AnimalDto> getAnimals() {
         return animalServices.getAnimals();
@@ -37,6 +38,7 @@ public class AnimalController {
         animalServices.update(animalDetails, id);
         return animalDetails;
     }
+
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable(value="id") long id) {
