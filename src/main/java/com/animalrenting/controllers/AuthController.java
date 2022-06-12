@@ -1,7 +1,5 @@
 package com.animalrenting.controllers;
 
-import com.animalrenting.models.City;
-import com.animalrenting.models.UserType;
 import com.animalrenting.models.Users;
 import com.animalrenting.models.dtos.AuthenticationRequestPayload;
 import com.animalrenting.models.dtos.AuthenticationResponsePayload;

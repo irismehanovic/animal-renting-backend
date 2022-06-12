@@ -16,8 +16,6 @@ public enum City {
     Gracanica,
     Gorazde,
     Srebrenik,
-    Konjic,
-    Lukavac,
 }
 
 
