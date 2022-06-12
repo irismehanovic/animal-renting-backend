@@ -73,29 +73,7 @@ public class Users implements Serializable {
 
 
 
-  
-  
-  
-    public String getID() {
-        return ID;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setID(int i) {
-    }
-
-    public void setUsername(String iris111) {
-    }
-
-    public void setName(String iris) {
-    }
-
-    public String getUsername() {
-        return username;
-    }
 
     public void setLastName(String mehanovic) {
     }
@@ -125,14 +103,7 @@ public class Users implements Serializable {
         return city;
     }
 
-    public void setAddress(String address) {
-    }
-
     public void setUserType(UserType rentee) {
-    }
-
-    public String getAddress() {
-        return address;
     }
 
     public UserType getUserType() {
@@ -146,10 +117,4 @@ public class Users implements Serializable {
         return phoneNumber;
     }
 
-    public void setDateOfBirth(int i) {
-    }
-
-    public int getDateOfBirth() {
-        return dateOfBirth;
-    }
 }
