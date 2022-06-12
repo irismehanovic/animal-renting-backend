@@ -70,4 +70,51 @@ public class Users implements Serializable {
 //    private List<Animal> animals = new ArrayList<>();
 //    private Set<Animal> animals = new HashSet<>();
 
+
+
+
+
+
+    public void setLastName(String mehanovic) {
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setEmail(String s) {
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPassword(String petrent) {
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setCity(City sarajevo) {
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setUserType(UserType rentee) {
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setPhoneNumber(int i) {
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
 }
