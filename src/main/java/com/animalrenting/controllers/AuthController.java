@@ -1,7 +1,5 @@
 package com.animalrenting.controllers;
 
-import com.animalrenting.models.City;
-import com.animalrenting.models.UserType;
 import com.animalrenting.models.Users;
 import com.animalrenting.models.dtos.AuthenticationRequestPayload;
 import com.animalrenting.models.dtos.AuthenticationResponsePayload;
@@ -48,9 +46,17 @@ public class AuthController {
 
         final String jwt = jwtTokenUtil.generateToken(payload.getUsername());
 
-        Users user = userRepository.findFirstByUsername(payload.getUsername());
 
-        return ResponseEntity.ok(new AuthenticationResponsePayload(jwt, user.getId()));
+        var payl = new AuthenticationResponsePayload("", 0L);
+        if (userRepository.findByUsername(payload.getUsername()).isPresent()) {
+            var user = userRepository.findByUsername(payload.getUsername()).get();
+            var id = user.getId();
+            payl.setId(id);
+            payl.setToken(jwt);
+        }
+
+        return ResponseEntity.ok(payl);
+
     }
 
     @PostMapping("/signup")

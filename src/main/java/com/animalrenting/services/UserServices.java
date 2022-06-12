@@ -6,7 +6,8 @@ import com.animalrenting.models.UserType;
 import com.animalrenting.models.Users;
 import com.animalrenting.repositories.AnimalRepository;
 import com.animalrenting.repositories.UsersRepository;
-import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,6 +21,8 @@ public class UserServices {
     private final List<Users> userList = null;
     private final UsersRepository userRepositories;
 
+
+    @Autowired
 
     public UserServices(UsersRepository userRepository) {
         this.userRepositories = userRepository;
