@@ -9,3 +9,4 @@ public class AuthenticationRequestPayload {
     private String username;
     private String password;
 }
+

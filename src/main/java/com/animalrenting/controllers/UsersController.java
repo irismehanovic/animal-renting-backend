@@ -3,6 +3,7 @@ package com.animalrenting.controllers;
 import com.animalrenting.models.Animal;
 import com.animalrenting.models.Users;
 import com.animalrenting.services.UserServices;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
 @RequestMapping("/users")
 public class UsersController {
 
+    @Autowired
     private final UserServices userServices;
 
     public UsersController(UserServices userServices) {

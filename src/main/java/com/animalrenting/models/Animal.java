@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
-@Proxy(lazy = false)
 public class Animal implements Serializable {
 
     private static final long serialVersionUID = 2L;
@@ -49,10 +48,17 @@ public class Animal implements Serializable {
     @Column(name = "vaccinated", nullable = false)
     private boolean vaccinated;
 
-//    @JsonIgnore
+
+
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "id")
+//    private Users user;
+    
     @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private Users user;
+    @JoinColumn(name = "users", referencedColumnName = "id")
+    private Users users;
+
+
 
 //    @OneToOne(fetch = FetchType.LAZY, mappedBy = "animals")
 //    private Animal animals;
