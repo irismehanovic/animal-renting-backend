@@ -55,7 +55,11 @@ public class Users implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private City city;
 
-    @OneToMany(mappedBy = "user")
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "users")
+//    private List<Animal> animals;
+
+
+    @OneToMany(mappedBy = "users")
     private List<Animal> animals;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")

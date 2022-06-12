@@ -6,6 +6,7 @@ import com.animalrenting.models.UserType;
 import com.animalrenting.models.Users;
 import com.animalrenting.repositories.AnimalRepository;
 import com.animalrenting.repositories.UsersRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -47,12 +48,14 @@ public class UserServices {
     }
 
     private Users getEntity(long id) {
+        //Optional<Users> user = userRepositories.findByUsername("g");
         Optional<Users> usersOptional = userRepositories.findById(id);
+
         if(usersOptional.isPresent()) {
             return usersOptional.get();
         }
 
-        throw new RuntimeException("Animal with id:" + id + " does not exist!");
+        throw new RuntimeException("User with id: " + id + " does not exist!");
     }
 
 }
