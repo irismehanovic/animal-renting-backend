@@ -46,6 +46,7 @@ public class AuthController {
 
         final String jwt = jwtTokenUtil.generateToken(payload.getUsername());
 
+
         var payl = new AuthenticationResponsePayload("", 0L);
         if (userRepository.findByUsername(payload.getUsername()).isPresent()) {
             var user = userRepository.findByUsername(payload.getUsername()).get();
@@ -55,6 +56,7 @@ public class AuthController {
         }
 
         return ResponseEntity.ok(payl);
+
     }
 
     @PostMapping("/signup")

@@ -6,6 +6,7 @@ import com.animalrenting.models.UserType;
 import com.animalrenting.models.Users;
 import com.animalrenting.repositories.AnimalRepository;
 import com.animalrenting.repositories.UsersRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +21,12 @@ public class UserServices {
     private final List<Users> userList = null;
     private final UsersRepository userRepositories;
 
+
     @Autowired
+
     public UserServices(UsersRepository userRepository) {
         this.userRepositories = userRepository;
+
     }
 
     public List<Users> getUsers() {
@@ -33,8 +37,10 @@ public class UserServices {
         return getEntity(id);
     }
 
+
     public Users create(Users model) {
         return userRepositories.save(model);
+
     }
 
     public Users update(Users model, long id) {
@@ -44,17 +50,22 @@ public class UserServices {
         return userRepositories.save(model);
     }
 
+
     public void delete(long id) {
         userRepositories.deleteById(id);
+
     }
 
     private Users getEntity(long id) {
+        //Optional<Users> user = userRepositories.findByUsername("g");
         Optional<Users> usersOptional = userRepositories.findById(id);
+
         if(usersOptional.isPresent()) {
             return usersOptional.get();
         }
 
-        throw new RuntimeException("Animal with id:" + id + " does not exist!");
+        throw new RuntimeException("User with id: " + id + " does not exist!");
     }
 
 }
+
