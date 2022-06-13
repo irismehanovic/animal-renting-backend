@@ -44,6 +44,7 @@ public class AnimalServices {
         return toDto(entity);
     }
 
+
     private AnimalDto toDto(Animal entity) {
         AnimalDto result = new AnimalDto();
         result.setAnimalType(entity.getAnimalType());
