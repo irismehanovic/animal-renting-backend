@@ -73,7 +73,6 @@ public class AnimalServices {
     }
 
 
-
     public AnimalDto update(AnimalDto model, long id) {
         getEntity(id);
         Animal entity = toEntity(model);
