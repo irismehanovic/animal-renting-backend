@@ -1,8 +1,6 @@
 package com.animalrenting.services;
 
-import com.animalrenting.models.AnimalType;
 import com.animalrenting.models.Animal;
-import com.animalrenting.models.Gender;
 import com.animalrenting.models.dtos.AnimalDto;
 import com.animalrenting.repositories.AnimalRepository;
 import org.springframework.stereotype.Service;
