@@ -55,6 +55,7 @@ public class AnimalServices {
         result.setAge(entity.getAge());
         result.setPrice(entity.getPrice());
         result.setVaccinated(entity.isVaccinated());
+
         return result;
     }
 
