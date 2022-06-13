@@ -55,10 +55,8 @@ public class Users implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private City city;
 
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-
-    private List<Animal> animals;
+//    @OneToMany(mappedBy = "user")
+//    private List<Animal> animals;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
 //    private Set<Animal> animals;
@@ -73,83 +71,5 @@ public class Users implements Serializable {
 
 
 
-  
-  
-  
-    public String getID() {
-        return ID;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setID(int i) {
-    }
-
-    public void setUsername(String iris111) {
-    }
-
-    public void setName(String iris) {
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setLastName(String mehanovic) {
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setEmail(String s) {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setPassword(String petrent) {
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setCity(City sarajevo) {
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setAddress(String address) {
-    }
-
-    public void setUserType(UserType rentee) {
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public void setPhoneNumber(int i) {
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setDateOfBirth(int i) {
-    }
-
-    public int getDateOfBirth() {
-        return dateOfBirth;
-    }
 }

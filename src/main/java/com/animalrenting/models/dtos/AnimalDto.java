@@ -15,4 +15,5 @@ public class AnimalDto {
     private AnimalType animalType;
     private Gender gender;
     private boolean vaccinated;
+    private long userId;
 }

@@ -3,8 +3,10 @@ package com.animalrenting.services;
 import com.animalrenting.models.AnimalType;
 import com.animalrenting.models.Animal;
 import com.animalrenting.models.Gender;
+import com.animalrenting.models.Users;
 import com.animalrenting.models.dtos.AnimalDto;
 import com.animalrenting.repositories.AnimalRepository;
+import com.animalrenting.repositories.UsersRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +17,11 @@ public class AnimalServices {
 
     private final AnimalRepository animalRepositories;
 
-    public AnimalServices(AnimalRepository animalRepository) {
+    private final UsersRepository usersRepositories;
+
+    public AnimalServices(AnimalRepository animalRepository, UsersRepository usersRepositories) {
         this.animalRepositories = animalRepository;
+        this.usersRepositories = usersRepositories;
     }
 
     public List<AnimalDto> getAnimals() {
@@ -25,6 +30,11 @@ public class AnimalServices {
 
     public AnimalDto getById(long id) {
         return toDto(getEntity(id));
+    }
+
+    public List<AnimalDto> getUserAnimals(long user_id) {
+        List<Animal> animals = animalRepositories.findAllByUserId(user_id);
+        return animals.stream().map((animal)->toDto(animal)).toList();
     }
 
     public AnimalDto create(AnimalDto model) {
@@ -55,8 +65,12 @@ public class AnimalServices {
         entity.setAge(model.getAge());
         entity.setShortDescription(model.getShortDescription());
         entity.setLongDescription(model.getLongDescription());
+        Optional<Users> user = usersRepositories.findById(model.getUserId());
+        entity.setUser(user.get());
         return entity;
     }
+
+
 
     public AnimalDto update(AnimalDto model, long id) {
         getEntity(id);
