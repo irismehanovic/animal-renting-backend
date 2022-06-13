@@ -55,10 +55,8 @@ public class Users implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private City city;
 
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-
-    private List<Animal> animals;
+//    @OneToMany(mappedBy = "user")
+//    private List<Animal> animals;
 
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "owner")
 //    private Set<Animal> animals;
@@ -71,50 +69,5 @@ public class Users implements Serializable {
 //    private Set<Animal> animals = new HashSet<>();
 
 
-
-
-
-
-    public void setLastName(String mehanovic) {
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setEmail(String s) {
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setPassword(String petrent) {
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setCity(City sarajevo) {
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setUserType(UserType rentee) {
-    }
-
-    public UserType getUserType() {
-        return userType;
-    }
-
-    public void setPhoneNumber(int i) {
-    }
-
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
 
 }
