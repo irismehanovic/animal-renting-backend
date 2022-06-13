@@ -29,3 +29,8 @@ git push origin main
 git push heroku main
 
 This should work and deploy the changes on heroku safely
+
+
+## Even Emitter
+
+Even Emmiter is a great tool to use and efficient for future utilization because of its scalability. However, sometimes, in the beginnings of a project especially if it is the first project, more complex syntaxes create even more confussion and can hinder further deveopment. For that reason, in some classes, a direct call to the service has been made and the injectiable was used. Once more practice and experience has been gathered, more complex tools will be used in this project.
