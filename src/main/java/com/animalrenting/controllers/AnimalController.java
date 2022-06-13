@@ -1,6 +1,5 @@
 package com.animalrenting.controllers;
 
-import com.animalrenting.models.Animal;
 import com.animalrenting.models.dtos.AnimalDto;
 import com.animalrenting.services.AnimalServices;
 import org.springframework.web.bind.annotation.*;
@@ -14,21 +13,19 @@ public class AnimalController {
 
     private final AnimalServices animalServices;
 
-
-
-
     public AnimalController(AnimalServices animalServices) {
         this.animalServices = animalServices;
+    }
+
+
+    @GetMapping
+    public List<AnimalDto> getAnimals() {
+        return animalServices.getAnimals();
     }
 
     @GetMapping("/user/{id}")
     public List<AnimalDto> getUserAnimals(@PathVariable long id) {
         return animalServices.getUserAnimals(id);
-    }
-
-    @GetMapping
-    public List<AnimalDto> getAnimals() {
-        return animalServices.getAnimals();
     }
 
     @GetMapping("/{id}")
@@ -46,6 +43,7 @@ public class AnimalController {
         animalServices.update(animalDetails, id);
         return animalDetails;
     }
+
 
     @DeleteMapping("{id}")
     public void delete(@PathVariable(value="id") long id) {
