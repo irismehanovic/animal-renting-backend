@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class AnimalDto {
+    private long id;
     private String age;
     private double price;
     private String shortDescription;

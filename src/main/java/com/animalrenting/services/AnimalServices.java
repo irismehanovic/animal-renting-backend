@@ -47,6 +47,7 @@ public class AnimalServices {
 
     private AnimalDto toDto(Animal entity) {
         AnimalDto result = new AnimalDto();
+        result.setId(entity.getId());
         result.setAnimalType(entity.getAnimalType());
         result.setGender(entity.getGender());
         result.setShortDescription(entity.getShortDescription());
